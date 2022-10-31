@@ -5,7 +5,6 @@ import {Home, Splash, Catalog, Profile} from '../pages';
 import {BottomNavigator} from '../components';
 
 const Stack = createNativeStackNavigator();
-
 const Tab = createBottomTabNavigator();
 
 const MainApp = () => {
