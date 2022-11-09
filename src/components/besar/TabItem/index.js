@@ -2,29 +2,32 @@ import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {
   IconHome,
-  IconHomeActive,
+  IconHomeA,
   IconCatalog,
-  IconCatalogActive,
+  IconCatalogA,
   IconProfile,
-  IconProfileActive,
+  IconProfileA,
 } from '../../../assets';
-import {colors} from '../../../utils';
+import {colors, fonts} from '../../../utils';
 
 const TabItem = ({isFocused, onLongPress, onPress, label}) => {
   const Icon = () => {
-    if (label === 'Home') {
-      return isFocused ? <IconHomeActive /> : <IconHome />;
-    } else if (label === 'Catalog') {
-      return isFocused ? <IconCatalogActive /> : <IconCatalog />;
-    } else if (label === 'Profile') {
-      return isFocused ? <IconProfileActive /> : <IconProfile />;
+    if (label === 'Catalog') {
+      return isFocused ? <IconCatalogA /> : <IconCatalog />;
     }
-
+    if (label === 'Home') {
+      return isFocused ? <IconHomeA /> : <IconHome />;
+    }
+    if (label === 'Profile') {
+      return isFocused ? <IconProfileA /> : <IconProfile />;
+    }
     return <IconHome />;
   };
 
   return (
     <TouchableOpacity
+      accessibilityRole="button"
+      accessibilityState={isFocused ? {selected: true} : {}}
       onPress={onPress}
       onLongPress={onLongPress}
       style={styles.container}>
@@ -44,5 +47,6 @@ const styles = StyleSheet.create({
     color: isFocused ? colors.white : colors.secondary,
     fontSize: 11,
     marginTop: 4,
+    fontFamily: fonts.primary.bold,
   }),
 });

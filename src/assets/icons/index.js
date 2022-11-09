@@ -1,15 +1,19 @@
-import IconHome from './home.svg'
-import IconHomeActive from './home-active.svg'
-import IconCatalog from './catalog.svg'
-import IconCatalogActive from './catalog-active.svg'
-import IconProfile from './profile.svg'
-import IconProfileActive from './profile-active.svg'
+import IconHome from './home.svg';
+import IconHomeA from './home-active.svg';
+import IconCatalog from './catalog.svg';
+import IconCatalogA from './catalog-active.svg';
+import IconProfile from './profile.svg';
+import IconProfileA from './profile-active.svg';
+import IconSearch from './search.svg';
+import IconCart from './cart.svg';
 
 export {
-    IconHome,
-    IconHomeActive,
-    IconCatalog,
-    IconCatalogActive,
-    IconProfile,
-    IconProfileActive,
-}
+  IconHome,
+  IconHomeA,
+  IconCatalog,
+  IconCatalogA,
+  IconProfile,
+  IconProfileA,
+  IconSearch,
+  IconCart,
+};

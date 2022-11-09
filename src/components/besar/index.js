@@ -1,3 +1,5 @@
-import BottomNavigator from "./BottomNavigator";
+import BottomNavigator from './BottomNavigator';
+import HeaderComponent from './HeaderComponent';
+import BannerSlider from './BannerSlider';
 
-export { BottomNavigator }
+export {BottomNavigator, HeaderComponent, BannerSlider};
