@@ -15,7 +15,7 @@ export default class HeaderComponent extends Component {
             <TextInput placeholder="Cari Jersey" style={styles.input} />
           </View>
           <Jarak width={10} />
-          <Tombol icon="keranjang" totalKeranjang={2} padding={10} />
+          <Tombol icon="keranjang" totalKeranjang={25} padding={10} />
         </View>
       </View>
     );
