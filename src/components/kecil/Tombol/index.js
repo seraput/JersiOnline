@@ -2,13 +2,19 @@ import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {IconCart} from '../../../assets';
 import {colors} from '../../../utils';
+import TextButton from './TextButton';
 
-const Tombol = ({icon, totalKeranjang, padding}) => {
+const Tombol = props => {
   const Icon = () => {
     if (icon === 'keranjang') {
       return <IconCart />;
     }
   };
+  const {icon, totalKeranjang, padding, type} = props;
+
+  if (type === 'text') {
+    return <TextButton {...props} />;
+  }
 
   return (
     <TouchableOpacity style={styles.container(padding)}>

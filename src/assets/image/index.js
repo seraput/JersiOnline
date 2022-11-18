@@ -6,6 +6,7 @@ import Laliga from './laliga.png';
 import BundesLiga from './bundesliga.png';
 import PremierLeague from './premierleague.png';
 import SerieA from './seriea.png';
+import FotoProfile from './fotoprofile.jpg';
 
 export {
   Logo,
@@ -16,4 +17,5 @@ export {
   BundesLiga,
   PremierLeague,
   SerieA,
+  FotoProfile,
 };
