@@ -11,6 +11,8 @@ import IconEdit from './edit.svg';
 import IconPassword from './password.svg';
 import IconLogout from './logout.svg';
 import IconHistory from './history.svg';
+import IconArrowLeft from './arrow-left.svg';
+import IconCartPutih from './cart-putih.svg';
 
 export {
   IconHome,
@@ -26,4 +28,6 @@ export {
   IconLogout,
   IconPassword,
   IconHistory,
+  IconArrowLeft,
+  IconCartPutih,
 };

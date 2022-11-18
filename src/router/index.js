@@ -1,7 +1,7 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {Home, Splash, Catalog, Profile} from '../pages';
+import {Home, Splash, Catalog, Profile, JerseyDetail} from '../pages';
 import {BottomNavigator} from '../components';
 
 const Stack = createStackNavigator();
@@ -30,6 +30,11 @@ const Router = () => {
       <Stack.Screen
         name="MainApp"
         component={MainApp}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="JerseyDetail"
+        component={JerseyDetail}
         options={{headerShown: false}}
       />
     </Stack.Navigator>
