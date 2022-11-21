@@ -4,6 +4,7 @@ import BannerSlider from './BannerSlider';
 import ListLiga from './ListLiga';
 import ListJersey from './ListJersey';
 import ListMenu from './ListMenu';
+import JerseySlider from './JerseySlider';
 
 export {
   BottomNavigator,
@@ -12,4 +13,5 @@ export {
   ListLiga,
   ListJersey,
   ListMenu,
+  JerseySlider,
 };

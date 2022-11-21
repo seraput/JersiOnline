@@ -15,6 +15,7 @@ export default class Catalog extends Component {
   }
   render() {
     const {ligas, jerseys} = this.state;
+    const {navigation} = this.props;
     return (
       <View style={styles.page}>
         <HeaderComponent />
@@ -26,7 +27,7 @@ export default class Catalog extends Component {
           style={styles.container}>
           <View style={styles.pilihJersey}>
             <Text style={styles.label}>List Jersey</Text>
-            <ListJersey jerseys={jerseys} />
+            <ListJersey jerseys={jerseys} navigation={navigation} />
           </View>
           <Jarak height={100} />
         </ScrollView>

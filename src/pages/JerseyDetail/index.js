@@ -7,7 +7,13 @@ import {
   responsiveHeight,
   responsiveWidth,
 } from '../../utils';
-import {CardLiga, Tombol} from '../../components';
+import {
+  CardLiga,
+  Inputan,
+  JerseySlider,
+  Pilihan,
+  Tombol,
+} from '../../components';
 
 export default class JerseyDetail extends Component {
   constructor(props) {
@@ -22,9 +28,9 @@ export default class JerseyDetail extends Component {
   render() {
     const {navigation} = this.props;
     const {jersey, images} = this.state;
-    console.log('Cek Parameter', this.props.route.params);
     return (
       <View style={styles.page}>
+        <JerseySlider images={images} />
         <View style={styles.button}>
           <Tombol
             icon="arrow-left"
@@ -49,7 +55,21 @@ export default class JerseyDetail extends Component {
               <Text style={styles.berat}>Berat : {jersey.berat}</Text>
             </View>
 
-            <View></View>
+            <View style={styles.form}>
+              <Inputan
+                label="Jumlah"
+                width={responsiveWidth(160)}
+                height={responsiveHeight(33)}
+                fontSize={10}
+              />
+              <Pilihan
+                label="Pilih"
+                width={responsiveWidth(160)}
+                height={responsiveHeight(33)}
+                fontSize={10}
+              />
+            </View>
+            <Inputan label="Keterangan" textarea fontSize={10} />
           </View>
         </View>
       </View>
@@ -115,5 +135,9 @@ const styles = StyleSheet.create({
     fontFamily: fonts.primary.regular,
     fontSize: 12,
     color: 'black',
+  },
+  form: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
 });
