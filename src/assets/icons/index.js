@@ -13,6 +13,10 @@ import IconLogout from './logout.svg';
 import IconHistory from './history.svg';
 import IconArrowLeft from './arrow-left.svg';
 import IconCartPutih from './cart-putih.svg';
+import IconDelete from './delete.svg';
+import IconArrowRightPutih from './arrowrightwhite.svg';
+import IconPayment from './payment.svg';
+import IconArrowRight_ from './arrowright_.svg';
 
 export {
   IconHome,
@@ -30,4 +34,8 @@ export {
   IconHistory,
   IconArrowLeft,
   IconCartPutih,
+  IconDelete,
+  IconArrowRightPutih,
+  IconPayment,
+  IconArrowRight_,
 };

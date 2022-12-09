@@ -17,6 +17,7 @@ export default class Profile extends Component {
 
   render() {
     const {profile, menus} = this.state;
+    const {navigation} = this.props;
     return (
       <View style={styles.page}>
         <View style={styles.container}>
@@ -28,7 +29,7 @@ export default class Profile extends Component {
               {profile.alamat} {profile.kota}
             </Text>
           </View>
-          <ListMenu menus={menus} />
+          <ListMenu menus={menus} navigation={navigation} />
         </View>
       </View>
     );
@@ -52,9 +53,9 @@ const styles = StyleSheet.create({
   foto: {
     width: responsiveWidth(150),
     height: responsiveWidth(150),
-    borderRadius: 40,
+    borderRadius: 90,
     alignSelf: 'center',
-    marginTop: -responsiveWidth(75),
+    marginTop: -responsiveWidth(90),
   },
   textBio: {
     alignItems: 'center',

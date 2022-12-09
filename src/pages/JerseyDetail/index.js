@@ -10,6 +10,7 @@ import {
 import {
   CardLiga,
   Inputan,
+  Jarak,
   JerseySlider,
   Pilihan,
   Tombol,
@@ -58,18 +59,33 @@ export default class JerseyDetail extends Component {
             <View style={styles.form}>
               <Inputan
                 label="Jumlah"
-                width={responsiveWidth(160)}
-                height={responsiveHeight(33)}
+                width={responsiveWidth(150)}
+                height={responsiveHeight(38)}
                 fontSize={10}
               />
               <Pilihan
-                label="Pilih"
-                width={responsiveWidth(160)}
-                height={responsiveHeight(33)}
+                label="Ukuran"
+                width={responsiveWidth(150)}
+                height={responsiveHeight(38)}
                 fontSize={10}
+                datas={jersey.ukuran}
+                color={colors.border}
               />
             </View>
-            <Inputan label="Keterangan" textarea fontSize={10} />
+            <Inputan
+              label="Keterangan"
+              textarea
+              fontSize={13}
+              placeholder="Isi jika ingin menambahkan nomor, tag atau nama"
+            />
+            <Jarak height={15} />
+            <Tombol
+              title="Masuk Keranjang"
+              type="textIcon"
+              icon="keranjang-putih"
+              padding={responsiveHeight(17)}
+              fontSize={18}
+            />
           </View>
         </View>
       </View>

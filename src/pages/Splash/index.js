@@ -1,12 +1,12 @@
-import { StyleSheet, View } from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import React, {Component} from 'react';
 import {Ilustrasi, Logo} from '../../assets';
 
 export default class Splash extends Component {
   componentDidMount() {
     setTimeout(() => {
-      this.props.navigation.replace('MainApp')
-    }, 3000)
+      this.props.navigation.replace('login');
+    }, 3000);
   }
 
   render() {

@@ -1,8 +1,9 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
-import {IconArrowLeft, IconCart} from '../../../assets';
+import {IconArrowLeft, IconArrowRight, IconCart} from '../../../assets';
 import {colors} from '../../../utils';
 import TextButton from './TextButton';
+import TextIcon from './TextIcon';
 
 const Tombol = props => {
   const Icon = () => {
@@ -10,12 +11,17 @@ const Tombol = props => {
       return <IconCart />;
     } else if (icon === 'arrow-left') {
       return <IconArrowLeft />;
+    } else if (icon === 'right') {
+      return <IconArrowRight />;
     }
+    return <IconCart />;
   };
   const {icon, totalKeranjang, padding, type, onPress} = props;
 
   if (type === 'text') {
     return <TextButton {...props} />;
+  } else if (type === 'textIcon') {
+    return <TextIcon {...props} />;
   }
 
   return (

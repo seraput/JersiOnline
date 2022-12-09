@@ -18,7 +18,7 @@ export default class Catalog extends Component {
     const {navigation} = this.props;
     return (
       <View style={styles.page}>
-        <HeaderComponent />
+        <HeaderComponent navigation={navigation} />
         <View style={styles.pilihLiga}>
           <ListLiga ligas={ligas} />
         </View>

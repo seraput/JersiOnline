@@ -26,7 +26,7 @@ export default class Home extends Component {
     return (
       <View style={styles.page}>
         <ScrollView showsVerticalScrollIndicator={false}>
-          <HeaderComponent />
+          <HeaderComponent navigation={navigation} />
           <BannerSlider />
           <View style={styles.pilihLiga}>
             <Text style={styles.label}>Pilih Liga</Text>

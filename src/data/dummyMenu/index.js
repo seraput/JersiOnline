@@ -6,24 +6,24 @@ export const dummyMenu = [
     id: 1,
     nama: 'Edit Profile',
     gambar: <IconEdit />,
-    halaman: 'EditProfile',
+    halaman: 'editProfile',
   },
   {
     id: 2,
     nama: 'Change Password',
     gambar: <IconPassword />,
-    halaman: 'EditProfile',
+    halaman: 'editPassword',
   },
   {
     id: 3,
     nama: 'History Pemesanan',
     gambar: <IconHistory />,
-    halaman: 'EditProfile',
+    halaman: 'historyPesanan',
   },
   {
     id: 4,
     nama: 'Sign Out',
     gambar: <IconLogout />,
-    halaman: 'Login',
+    halaman: 'login',
   },
 ];

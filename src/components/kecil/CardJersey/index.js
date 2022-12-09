@@ -15,7 +15,7 @@ const CardJersey = ({jersey, navigation}) => {
         title="Detail"
         style={styles.detailBtn}
         padding={7}
-        onPress={() => navigation.navigate('JerseyDetail', {jersey})}
+        onPress={() => navigation.navigate('jerseyDetail', {jersey})}
       />
     </View>
   );
