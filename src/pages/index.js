@@ -8,7 +8,8 @@ import Checkout from './Checkout';
 import EditProfile from './EditProfile';
 import ChangePassword from './ChangePassword';
 import HistoryPemesanan from './HistoryPesanan';
-import Registrasi from './Registrasi';
+import Register1 from './Registrasi/Register1';
+import Register2 from './Registrasi/Register2';
 import Login from './Login';
 
 export {
@@ -23,5 +24,6 @@ export {
   ChangePassword,
   HistoryPemesanan,
   Login,
-  Registrasi,
+  Register1,
+  Register2,
 };

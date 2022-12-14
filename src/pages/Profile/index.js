@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   foto: {
     width: responsiveWidth(150),
     height: responsiveWidth(150),
-    borderRadius: 90,
+    borderRadius: 20,
     alignSelf: 'center',
     marginTop: -responsiveWidth(90),
   },

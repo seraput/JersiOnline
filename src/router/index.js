@@ -13,7 +13,8 @@ import {
   HistoryPemesanan,
   ChangePassword,
   Login,
-  Registrasi,
+  Register1,
+  Register2,
 } from '../pages';
 import {BottomNavigator} from '../components';
 
@@ -46,8 +47,13 @@ const Router = () => {
         options={{headerShown: false}}
       />
       <Stack.Screen
-        name="registrasi"
-        component={Registrasi}
+        name="register1"
+        component={Register1}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="register2"
+        component={Register2}
         options={{headerShown: false}}
       />
       <Stack.Screen

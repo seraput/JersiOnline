@@ -28,7 +28,7 @@ export default class Login extends Component {
           <Text style={styles.text1}>Belum memiliki Akun ?</Text>
           <Text
             style={styles.text2}
-            onPress={() => this.props.navigation.navigate('registrasi')}>
+            onPress={() => this.props.navigation.navigate('register1')}>
             Daftar Sekarang !
           </Text>
         </View>

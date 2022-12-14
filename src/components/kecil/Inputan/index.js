@@ -1,5 +1,5 @@
 import {StyleSheet, Text, TextInput, View} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import {colors, fonts} from '../../../utils';
 
 const Inputan = ({
@@ -11,6 +11,7 @@ const Inputan = ({
   label,
   value,
   secureTextEntry,
+  keyboardType,
 }) => {
   if (textarea) {
     return (
@@ -19,7 +20,7 @@ const Inputan = ({
         <TextInput
           style={styles.inputTextArea(fontSize)}
           multiline={true}
-          numberOfLines={3}
+          numberOfLines={5}
           value={value}
         />
       </View>
@@ -32,6 +33,7 @@ const Inputan = ({
         style={styles.input(width, height, fontSize)}
         value={value}
         secureTextEntry={secureTextEntry}
+        keyboardType={keyboardType}
       />
     </View>
   );
@@ -60,13 +62,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   }),
   inputTextArea: fontSize => ({
-    fontSize: fontSize ? fontSize : 14,
+    fontSize: fontSize ? fontSize : 18,
     fontFamily: fonts.primary.regular,
     borderWidth: 1,
     borderRadius: 5,
     borderColor: colors.border,
-    color: 'black',
-    paddingHorizontal: 10,
     paddingVertical: 5,
+    paddingHorizontal: 10,
+    textAlignVertical: 'top',
   }),
 });

@@ -2,6 +2,7 @@ import {StyleSheet, Text, View} from 'react-native';
 import React, {useState} from 'react';
 import {colors, fonts} from '../../../utils';
 import {Picker} from '@react-native-picker/picker';
+import {responsiveHeight} from '../../../utils';
 
 const Pilihan = ({label, datas, width, height, fontSize, color}) => {
   const [selectedValue, setSelectedValue] = useState('');
@@ -30,16 +31,19 @@ const styles = StyleSheet.create({
   container: {
     marginTop: 10,
   },
-  label: (fontSize, color) => ({
-    fontSize: fontSize ? fontSize : 10,
+  label: color => ({
+    fontSize: 12,
     fontFamily: fonts.primary.regular,
     color: color ? color : 'black',
+    marginBottom: 3,
   }),
   selectPicker: (width, height, fontSize) => ({
     fontSize: fontSize ? fontSize : 10,
     fontFamily: fonts.primary.regular,
     width: width,
-    height: height,
+    height: height ? height : responsiveHeight(46),
+    marginTop: -10,
+    marginBottom: 10,
   }),
   wrapperPicker: {
     borderWidth: 1,

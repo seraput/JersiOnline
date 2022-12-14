@@ -7,6 +7,8 @@ import BundesLiga from './bundesliga.png';
 import PremierLeague from './premierleague.png';
 import SerieA from './seriea.png';
 import FotoProfile from './calistafoto.jpg';
+import Reg1 from './reg1';
+import Reg2 from './reg2';
 
 export {
   Logo,
@@ -18,4 +20,6 @@ export {
   PremierLeague,
   SerieA,
   FotoProfile,
+  Reg1,
+  Reg2,
 };
