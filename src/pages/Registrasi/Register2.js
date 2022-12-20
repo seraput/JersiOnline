@@ -56,7 +56,7 @@ export default class Register2 extends Component {
                   type="text"
                   padding={10}
                   fontSize={16}
-                  onPress={() => this.props.navigation.navigate('register2')}
+                  onPress={() => this.props.navigation.navigate('login')}
                 />
               </View>
             </View>
