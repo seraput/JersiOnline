@@ -1,33 +1,66 @@
 import {Text, StyleSheet, View, Image} from 'react-native';
 import React, {Component} from 'react';
-import {colors, fonts, responsiveHeight, responsiveWidth} from '../../utils';
+import {
+  colors,
+  fonts,
+  responsiveHeight,
+  responsiveWidth,
+  getData,
+} from '../../utils';
 import {dummyMenu, dummyProfile} from '../../data';
 import {RFValue} from 'react-native-responsive-fontsize';
 import {ListMenu} from '../../components';
+import {DefaultProfile} from '../../assets';
 
 export default class Profile extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      profile: dummyProfile,
+      profile: false,
       menus: dummyMenu,
     };
   }
 
+  componentDidMount() {
+    this._unsubscribe = this.props.navigation.addListener('focus', () => {
+      // do something
+      console.log('componen dipasang');
+      this.getUserData();
+    });
+  }
+
+  componentWillUnmount() {
+    this._unsubscribe();
+  }
+
+  getUserData = () => {
+    getData('user').then(res => {
+      const data = res;
+
+      if (data) {
+        this.setState({profile: data});
+      } else {
+        this.props.navigation.replace('login');
+      }
+    });
+  };
+
   render() {
     const {profile, menus} = this.state;
     const {navigation} = this.props;
+    // console.log('data local', profile);
     return (
       <View style={styles.page}>
         <View style={styles.container}>
-          <Image source={profile.avatar} style={styles.foto} />
+          <Image
+            source={profile.avatar ? {uri: profile.avatar} : DefaultProfile}
+            style={styles.foto}
+          />
           <View style={styles.textBio}>
             <Text style={styles.textNama}>{profile.nama}</Text>
-            <Text style={styles.textDesc}>{profile.nomerHp}</Text>
-            <Text style={styles.textDesc}>
-              {profile.alamat} {profile.kota}
-            </Text>
+            <Text style={styles.textDesc}>{profile.nohp}</Text>
+            <Text style={styles.textDesc}>{profile.alamat}</Text>
           </View>
           <ListMenu menus={menus} navigation={navigation} />
         </View>
