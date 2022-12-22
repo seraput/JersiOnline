@@ -6,23 +6,76 @@ import {
   TouchableWithoutFeedback,
   KeyboardAvoidingView,
   Keyboard,
+  Alert,
 } from 'react-native';
 import React, {Component} from 'react';
 import {colors, fonts, responsiveHeight, responsiveWidth} from '../../utils';
 import {Reg2} from '../../assets';
 import {Inputan, Jarak, Pilihan, Tombol} from '../../components';
-export default class Register2 extends Component {
+import {connect} from 'react-redux';
+import {
+  getProvinsiList,
+  getKotaList,
+} from '../../redux/actions/RajaOngkirAction';
+import {registerUser} from '../../redux/actions/AuthAction';
+
+class Register2 extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      dataProvinsi: [],
-      dataKota: [],
+      kota: false,
+      provinsi: false,
+      alamat: '',
     };
   }
 
+  componentDidMount() {
+    this.props.dispatch(getProvinsiList());
+  }
+
+  componentDidUpdate(prevProps) {
+    const {registerResult} = this.props;
+
+    if (registerResult && prevProps.registerResult !== registerResult) {
+      this.props.navigation.replace('MainApp');
+    }
+  }
+
+  ubahProvinsi = provinsi => {
+    this.setState({
+      provinsi: provinsi,
+    });
+    this.props.dispatch(getKotaList(provinsi));
+  };
+
+  onContinue = () => {
+    const {kota, provinsi, alamat} = this.state;
+
+    if (kota && provinsi && alamat) {
+      const data = {
+        nama: this.props.route.params.nama,
+        email: this.props.route.params.email,
+        nohp: this.props.route.params.nohp,
+        alamat: alamat,
+        provinsi: provinsi,
+        kota: kota,
+        status: 'user',
+      };
+
+      //Kirim ke Auth Action
+      console.log('Data', data);
+      this.props.dispatch(registerUser(data, this.props.route.params.password));
+    } else {
+      Alert.alert('Alert', 'Data belum lengkap!');
+    }
+  };
+
   render() {
-    const {dataKota, dataProvinsi} = this.state;
+    const {kota, provinsi, alamat} = this.state;
+    const {getProvinsiResult, getKotaResult, registerLoading} = this.props;
+    // console.log('Data register1 :', this.props.route.params);
+
     return (
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -47,16 +100,34 @@ export default class Register2 extends Component {
             </View>
 
             <View style={styles.card}>
-              <Inputan label="Alamat" textarea fontSize={14} height={40} />
-              <Pilihan label="Provinsi" datas={dataProvinsi} />
-              <Pilihan label="Kota / Kab" datas={dataKota} />
+              <Inputan
+                label="Alamat"
+                textarea
+                fontSize={14}
+                height={40}
+                onChangeText={alamat => this.setState({alamat})}
+                value={alamat}
+              />
+              <Pilihan
+                label="Provinsi"
+                datas={getProvinsiResult ? getProvinsiResult : []}
+                selectedValue={provinsi}
+                onValueChange={provinsi => this.ubahProvinsi(provinsi)}
+              />
+              <Pilihan
+                label="Kota/Kab"
+                datas={getKotaResult ? getKotaResult : []}
+                selectedValue={kota}
+                onValueChange={kota => this.setState({kota: kota})}
+              />
               <View style={styles.btn}>
                 <Tombol
                   title="Submit"
                   type="text"
                   padding={10}
                   fontSize={16}
-                  onPress={() => this.props.navigation.navigate('login')}
+                  onPress={() => this.onContinue()}
+                  loading={registerLoading}
                 />
               </View>
             </View>
@@ -66,6 +137,17 @@ export default class Register2 extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  getProvinsiResult: state.RajaOngkirReducer.getProvinsiResult,
+  getKotaResult: state.RajaOngkirReducer.getKotaResult,
+
+  registerLoading: state.AuthReducer.registerLoading,
+  registerResult: state.AuthReducer.registerResult,
+  registerError: state.AuthReducer.registerError,
+});
+
+export default connect(mapStateToProps, null)(Register2);
 
 const styles = StyleSheet.create({
   page: {

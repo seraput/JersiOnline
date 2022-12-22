@@ -11,7 +11,7 @@ import {
 import {colors, fonts} from '../../utils';
 import {dummyJersey, dummyLiga} from '../../data';
 
-export default class Home extends Component {
+class Home extends Component {
   constructor(props) {
     super(props);
 
@@ -20,6 +20,7 @@ export default class Home extends Component {
       jerseys: dummyJersey,
     };
   }
+
   render() {
     const {ligas, jerseys} = this.state;
     const {navigation} = this.props;
@@ -44,6 +45,8 @@ export default class Home extends Component {
     );
   }
 }
+
+export default Home;
 
 const styles = StyleSheet.create({
   page: {flex: 1, backgroundColor: colors.white},

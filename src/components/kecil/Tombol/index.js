@@ -4,6 +4,7 @@ import {IconArrowLeft, IconArrowRight, IconCart} from '../../../assets';
 import {colors} from '../../../utils';
 import TextButton from './TextButton';
 import TextIcon from './TextIcon';
+import Loading from './Loading';
 
 const Tombol = props => {
   const Icon = () => {
@@ -16,7 +17,11 @@ const Tombol = props => {
     }
     return <IconCart />;
   };
-  const {icon, totalKeranjang, padding, type, onPress} = props;
+  const {icon, totalKeranjang, padding, type, onPress, loading} = props;
+
+  if (loading) {
+    return <Loading {...props} />;
+  }
 
   if (type === 'text') {
     return <TextButton {...props} />;

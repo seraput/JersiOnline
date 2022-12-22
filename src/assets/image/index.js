@@ -9,6 +9,7 @@ import SerieA from './seriea.png';
 import FotoProfile from './calistafoto.jpg';
 import Reg1 from './reg1';
 import Reg2 from './reg2';
+import DefaultProfile from './default.jpg';
 
 export {
   Logo,
@@ -22,4 +23,5 @@ export {
   FotoProfile,
   Reg1,
   Reg2,
+  DefaultProfile,
 };
