@@ -18,5 +18,14 @@ export const getData = async key => {
     }
   } catch (e) {
     // error reading value
+    alert(e);
+  }
+};
+
+export const clearStorage = async function () {
+  try {
+    await AsyncStorage.removeItem('user');
+  } catch (error) {
+    console.log(error);
   }
 };
