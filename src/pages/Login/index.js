@@ -1,26 +1,72 @@
-import {Text, StyleSheet, View} from 'react-native';
+import {Text, StyleSheet, View, Alert} from 'react-native';
 import React, {Component} from 'react';
 import {Ilustrasi, Logo} from '../../assets';
 import {colors, fonts, responsiveHeight} from '../../utils';
 import {Inputan, Jarak, Tombol} from '../../components';
+import {loginUser} from '../../redux/actions/AuthAction';
+import {connect} from 'react-redux';
 
-export default class Login extends Component {
+class Login extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      email: '',
+      password: '',
+    };
+  }
+
+  login = () => {
+    const {email, password} = this.state;
+
+    if (email && password) {
+      // action
+      this.props.dispatch(loginUser(email, password));
+    } else {
+      Alert.alert('Error', 'email or password is empty.');
+    }
+  };
+
+  componentDidUpdate(prevProps) {
+    const {loginResult} = this.props;
+
+    if (loginResult && prevProps.loginResult !== loginResult) {
+      this.props.navigation.replace('MainApp');
+    }
+  }
+
   render() {
+    const {email, password} = this.state;
+    const {loginLoading} = this.props;
     return (
       <View style={styles.pages}>
         <View style={styles.logo}>
           <Logo />
         </View>
         <View style={styles.cardLogin}>
-          <Inputan label="Email" fontSize={14} height={40} />
-          <Inputan label="Password" secureTextEntry fontSize={14} height={40} />
+          <Inputan
+            label="Email"
+            fontSize={14}
+            height={40}
+            value={email}
+            onChangeText={email => this.setState({email})}
+          />
+          <Inputan
+            label="Password"
+            secureTextEntry
+            fontSize={14}
+            height={40}
+            value={password}
+            onChangeText={password => this.setState({password})}
+          />
           <Jarak height={responsiveHeight(50)} />
           <Tombol
             title="Login"
             type="text"
             padding={10}
             fontSize={16}
-            onPress={() => this.props.navigation.navigate('MainApp')}
+            loading={loginLoading}
+            onPress={() => this.login()}
           />
         </View>
 
@@ -40,6 +86,14 @@ export default class Login extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  loginLoading: state.AuthReducer.loginLoading,
+  loginResult: state.AuthReducer.loginResult,
+  loginError: state.AuthReducer.loginError,
+});
+
+export default connect(mapStateToProps, null)(Login);
 
 const styles = StyleSheet.create({
   pages: {
